@@ -49,23 +49,29 @@ def getData(link):
             #print(seen)
             #print(lista)
             if len(lista) == 16:
-                insertData(lista)
-
-def insertData(lista):
-    #print("\n\n\n")
-    query = ("insert into Casa(imagen, titulo, precio, tipo, venta, externas, superficie, tamano, camas, banos, mascotas, fechaConstruccion, ubicacion, tipoEdificio, visto, fechaVisto) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-    lista[8] = lista[8].replace("+","")
-    lista[9] = lista[9].replace("+","")
-    houseData = tuple(lista)
-    cursor = db.cursor()
-    cursor.execute(query,houseData)
-    db.commit()
-    cursor.close()
+                print("Imagen: " + lista[0])
+                print("Titulo: " + lista[1])
+                print("Precio: " + lista[2])
+                print("Tipo: " + lista[3])
+                print("Compra o Alquiler: " + lista[4])
+                print("Caracteristicas externas: " + lista[5])
+                print("Superficie: " + lista[6])
+                print("Tamaño: " + lista[7])
+                print("Camas: " + lista[8])
+                print("Baños: " + lista[9])
+                print("Mascotas: " + lista[10])
+                print("Fecha de Construccion: " + lista[11])
+                print("Ubicacion: " + lista[12])
+                print("Tipo de Edificio: " + lista[13])
+                print("Visto: " + lista[14] + " veces")
+                print("Ultima fecha de visto: " + lista[15])
+                print("\n\n")
 
 def main(link):
     cont = 1
     while cont < 22:
         print("Pagina: " + str(cont))
+        print("------------------------------------------------------------------------------------------------")
         if cont == 1:
             page = requests.get(link)
             soup = BeautifulSoup(page.content, "html.parser")
