@@ -1,10 +1,6 @@
 import requests
 import cssutils
-import MySQLdb
 from bs4 import BeautifulSoup
-
-db = MySQLdb.connect(host="localhost",user="root",passwd="12345",db="mydbScrap")
-db.set_character_set('utf8')
 
 def getData(link):
     lista = []
